@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1080dp"
+    android:height="520dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="520">
+
+    <!-- Nền hồng -->
+    <path
+        android:fillColor="@color/coral_500"
+        android:pathData="M0,0 L1080,0 L1080,360
+                          C 860,470 250,260 0,390
+                          L0,0 Z"/>
+    <!-- Họa tiết đường topo nhẹ (nhạt) -->
+    <path
+        android:fillColor="#14FFFFFF"
+        android:pathData="M80,80 C200,40 320,120 420,80
+                          C520,40 640,120 760,80
+                          C880,40 960,100 1040,60"
+        android:strokeWidth="0"/>
+
+    <path
+        android:fillColor="#10FFFFFF"
+        android:pathData="M60,180 C220,140 340,200 460,170
+                          C600,130 720,220 860,180"/>
+</vector>

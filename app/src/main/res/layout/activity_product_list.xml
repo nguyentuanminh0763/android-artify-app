@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBar dùng đúng behavior để nội dung KHÔNG tràn dưới status bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar_art"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            app:title="Artify • Products"
+            app:navigationIcon="@drawable/abc_ic_ab_back_material"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Nội dung cuộn dưới AppBar -->
+    <LinearLayout
+        android:id="@+id/content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- HÀNG SEARCH + SORT -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <!-- Search -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Tìm kiếm sản phẩm"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                app:startIconDrawable="@android:drawable/ic_menu_search">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Sort -->
+            <Spinner
+                android:id="@+id/spSort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"/>
+        </LinearLayout>
+
+        <!-- (tuỳ chọn) ChipGroup lọc -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipsCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:singleLine="true"
+            app:chipSpacingHorizontal="8dp"
+            app:chipSpacingVertical="4dp">
+
+            <com.google.android.material.chip.Chip
+                android:text="Tất cả"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.chip.Chip
+                android:text="Cọ" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.chip.Chip
+                android:text="Bút chì" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.chip.Chip
+                android:text="Màu nước" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.chip.Chip
+                android:text="Giấy" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.chip.Chip
+                android:text="Canvas" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Danh sách -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Shopping Cart"
+        app:layout_anchor="@id/content"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/coral_500"
+        app:tint="@android:color/white"
+        app:srcCompat="@drawable/ic_shopping_cart"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="16dp"
+        app:icon="@android:drawable/ic_input_add"
+        android:text="Thêm"
+        app:backgroundTint="@color/teal_500"
+        app:tint="@android:color/white"
+        app:layout_anchor="@id/content"
+        app:layout_anchorGravity="bottom|end" />
+
+    <!-- Nút doanh thu (mini FAB ở góc trên phải) -->
+    <!-- mini FAB mở Thống kê -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabRevenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Thống kê doanh thu"
+        app:fabSize="mini"
+        app:backgroundTint="@color/indigo_500"
+        app:tint="@android:color/white"
+        app:srcCompat="@drawable/ic_bar_chart"
+
+        app:layout_anchor="@id/content"
+        app:layout_anchorGravity="top|end"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="6dp"/>
+
+
+
+    <!-- thay icon ở đây -->
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

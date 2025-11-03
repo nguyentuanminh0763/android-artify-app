@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App theme (light + daynight) -->
+    <style name="Theme.Artify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">#6C63FF</item>
+        <item name="colorPrimaryVariant">#5848E8</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Secondary / Accent -->
+        <item name="colorSecondary">#FF8A80</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Optional: status bar color follows primary variant -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+    </style>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Ảnh -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- Tên -->
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/img"
+            app:layout_constraintEnd_toStartOf="@id/btnRemove"
+            app:layout_constraintTop_toTopOf="@id/img"
+            android:layout_marginStart="12dp"/>
+
+        <!-- Giá (badge) -->
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_price_badge_art"
+            app:layout_constraintStart_toStartOf="@id/txtName"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Điều khiển số lượng -->
+        <LinearLayout
+            android:id="@+id/qtyWrap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toStartOf="@+id/btnRemove"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnDec"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_qty_btn"
+                android:tint="@color/slate_700"
+                app:srcCompat="@android:drawable/ic_media_previous"
+                android:contentDescription="Giảm"/>
+
+            <TextView
+                android:id="@+id/txtQty"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <ImageButton
+                android:id="@+id/btnInc"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_qty_btn"
+                android:tint="@color/slate_700"
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:contentDescription="Tăng"/>
+        </LinearLayout>
+
+        <!-- Xoá -->
+        <ImageButton
+            android:id="@+id/btnRemove"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/slate_500"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
